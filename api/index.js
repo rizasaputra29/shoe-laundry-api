@@ -113,4 +113,4 @@ app.get('/', (req, res) => {
 // Export Express app (Wajib untuk Vercel Serverless Function)
 export default app; 
 // Jika Run secara lokal, bisa menambahkan:
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
