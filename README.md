@@ -3,15 +3,11 @@
 ## 🙎‍♂️ Data Mahasiswa
 
 Nama     : Muhammad Riza
+
 NIM      : 21120123140117
+
 Kelompok : 4
 
-\<p align="center"\>
-\<img src="[https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Node.js-339933%3Fstyle%3Dfor-the-badge%26logo%3Dnodedotjs%26logoColor%3Dwhite)" alt="Node.js"\>
-\<img src="[https://img.shields.io/badge/Express.js-000000?style=for-the-badge\&logo=express\&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Express.js-000000%3Fstyle%3Dfor-the-badge%26logo%3Dexpress%26logoColor%3Dwhite)" alt="Express.js"\>
-\<img src="[https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge\&logo=supabase\&logoColor=white](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)" alt="Supabase"\>
-\<img src="[https://img.shields.io/badge/Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)" alt="Vercel"\>
-\</p\>
 
 ## 📝 Deskripsi Proyek
 
