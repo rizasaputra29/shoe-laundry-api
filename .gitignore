@@ -1,0 +1,20 @@
+# Dependencies
+/node_modules
+
+# Environment Variables & Secrets
+# Ini sangat penting karena mengandung kredensial Supabase Anda
+.env
+
+# Logs
+npm-debug.log*
+.npm
+/logs
+
+# Vercel Deployment & Build Folders
+.vercel
+/dist
+/build
+
+# Editor/OS Specific Files
+.DS_Store
+*.swp
