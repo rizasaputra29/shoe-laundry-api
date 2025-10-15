@@ -197,4 +197,4 @@ API ini telah di-*deploy* ke Vercel dan dapat diakses publik.
 
 **Base URL Production:**
 
-➡️ **`[GANTI DENGAN LINK VERCEL ANDA]`**
+➡️ **`https://responsi-ppb-modul1.vercel.app/`**
