@@ -100,7 +100,7 @@ Server akan aktif dan *listening* di `http://localhost:3000`.
 
 -----
 
-## 💬 Contoh Request & Response (Menggunakan Postman)
+## 💬 Contoh Request & Response
 
 ### 1\. CREATE (Tambah Barang)
 
