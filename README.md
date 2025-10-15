@@ -2,8 +2,11 @@ REST API Daftar Barang Cuci Sepatu (Shoe Laundry API)
 
 🙎‍♂️ Data Mahasiswa
 Nama     : Muhammad Riza Saputra
+
 NIM      : 21120123140117
+
 Kelompok : 4
+
 
 📝 Deskripsi Umum Proyek
 Proyek ini adalah implementasi RESTful API sederhana untuk mengelola daftar barang (sepatu) yang masuk ke layanan cuci sepatu. API dibangun menggunakan Node.js dan Express.js, dengan Supabase sebagai backend database (PostgreSQL). API ini di-deploy sebagai Serverless Function menggunakan Vercel.
