@@ -1,128 +1,204 @@
-REST API Daftar Barang Cuci Sepatu (Shoe Laundry API)
+# 🧼 Shoe Laundry REST API (Node.js, Express.js, Supabase)
 
-🙎‍♂️ Data Mahasiswa
-Nama     : Muhammad Riza Saputra
+## 🙎‍♂️ Data Mahasiswa
 
+Nama     : Muhammad Riza
 NIM      : 21120123140117
-
 Kelompok : 4
 
+\<p align="center"\>
+\<img src="[https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Node.js-339933%3Fstyle%3Dfor-the-badge%26logo%3Dnodedotjs%26logoColor%3Dwhite)" alt="Node.js"\>
+\<img src="[https://img.shields.io/badge/Express.js-000000?style=for-the-badge\&logo=express\&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/Express.js-000000%3Fstyle%3Dfor-the-badge%26logo%3Dexpress%26logoColor%3Dwhite)" alt="Express.js"\>
+\<img src="[https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge\&logo=supabase\&logoColor=white](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)" alt="Supabase"\>
+\<img src="[https://img.shields.io/badge/Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)" alt="Vercel"\>
+\</p\>
 
-📝 Deskripsi Umum Proyek
-Proyek ini adalah implementasi RESTful API sederhana untuk mengelola daftar barang (sepatu) yang masuk ke layanan cuci sepatu. API dibangun menggunakan Node.js dan Express.js, dengan Supabase sebagai backend database (PostgreSQL). API ini di-deploy sebagai Serverless Function menggunakan Vercel.
+## 📝 Deskripsi Proyek
 
-✨ Tujuan dan Fitur Utama
-Tujuan: Menyediakan antarmuka terpusat untuk aplikasi client (seperti Dashboard admin atau aplikasi mobile) guna melakukan manajemen data pesanan cuci sepatu.
+Proyek ini adalah implementasi RESTful API sederhana yang dirancang untuk mengelola daftar barang (sepatu) yang masuk ke layanan cuci sepatu (*shoe laundry*). API ini menyediakan antarmuka CRUD lengkap yang memungkinkan aplikasi *client* (seperti dashboard atau aplikasi kasir) untuk melacak status pengerjaan setiap pesanan.
 
-Fitur Utama (CRUD):
+## ✨ Fitur Utama
 
-Create: Menambahkan data sepatu baru ke daftar cuci.
+| Fitur | Deskripsi |
+| :--- | :--- |
+| **CRUD Penuh** | Mendukung operasi Create, Read, Update, dan Delete untuk data barang. |
+| **Filter Status** | Memungkinkan pengambilan data berdasarkan status pengerjaan (`Masuk`, `Dicuci`, `Selesai`, `Diambil`). |
+| **Backend Terkelola** | Menggunakan **Supabase (PostgreSQL)** untuk penyimpanan data yang andal. |
+| **Serverless Deployment** | Di-*deploy* ke **Vercel** sebagai *Serverless Function* menggunakan Node.js dan Express.js. |
 
-Read: Mengambil semua daftar sepatu atau melihat detail berdasarkan ID.
+## 🛠️ Stack Teknologi
 
-Update: Mengubah detail atau status sepatu.
+  * **Backend:** Node.js
+  * **Framework:** Express.js
+  * **Database:** Supabase (PostgreSQL)
+  * **Deployment:** Vercel
 
-Delete: Menghapus data sepatu dari daftar.
+-----
 
-Filter: Mendukung query untuk memfilter barang berdasarkan status.
+## 💾 Struktur Data (Tabel `items`)
 
-💾 Struktur Data
-Kolom	Tipe Data	Keterangan	Contoh Nilai
-id	UUID	ID unik barang (otomatis)	8f5b...
-nama_sepatu	TEXT	Nama dan jenis sepatu	Vans Old Skool
-warna	TEXT	Warna utama sepatu	Navy
-layanan	TEXT	Jenis layanan cuci	Fast Clean
-status	TEXT	Status pengerjaan	Masuk, Dicuci, Selesai, Diambil
-tgl_masuk	TIMESTAMPTZ	Tanggal dan waktu barang diterima (otomatis)	2025-10-15T15:00:00+07
+Data disimpan dalam tabel `items` di Supabase dengan skema sebagai berikut:
 
-Export to Sheets
-🚀 Contoh Request dan Response
-Base URL: [LINK_DEPLOY_VERCEL]/api
+| Kolom | Tipe Data | Keterangan | Contoh Nilai |
+| :--- | :--- | :--- | :--- |
+| `id` | `UUID` | **Primary Key** unik untuk setiap item (dihasilkan otomatis). | `8f5b...` |
+| `nama_sepatu` | `TEXT` | Nama dan jenis sepatu. | `Vans Old Skool` |
+| `warna` | `TEXT` | Warna sepatu. | `Navy` |
+| `layanan` | `TEXT` | Jenis layanan cuci yang dipilih. | `Deep Clean` |
+| `status` | `TEXT` | Status pengerjaan saat ini. | `Masuk`, `Dicuci`, `Selesai` |
+| `tgl_masuk` | `TIMESTAMPTZ`| Tanggal dan waktu item diterima (ditetapkan otomatis).| `2025-10-15T...` |
 
-1. CREATE (Tambah Barang)
-Endpoint: POST /api/items
+-----
 
-Body (JSON):
+## 🚀 Panduan Instalasi dan Menjalankan API (Lokal)
 
-JSON
+### 1\. Kloning Repositori
 
+```bash
+git clone https://github.com/rizasaputra29/shoe-laundry-api
+cd shoe-laundry-api
+```
+
+### 2\. Instal Dependencies
+
+```bash
+npm install
+```
+
+### 3\. Konfigurasi Environment Variables
+
+Buat file bernama **`.env`** di *root* direktori proyek Anda dan isi dengan kredensial Supabase Anda.
+
+```env
+SUPABASE_URL="https://[PROJECT_REF].supabase.co"
+SUPABASE_KEY="[YOUR_SUPABASE_SERVICE_ROLE_KEY]"
+PORT=3000
+```
+
+> **Penting:** Gunakan **Service Role Key** dari Supabase Anda untuk operasi *server-side* yang aman.
+
+### 4\. Jalankan Server
+
+Gunakan *script* `dev` untuk menjalankan server secara lokal dengan fitur *live-reload* (memantau perubahan *file*).
+
+```bash
+npm run dev
+```
+
+Server akan aktif dan *listening* di `http://localhost:3000`.
+
+-----
+
+## 🌐 Endpoint API
+
+**Base URL Lokal:** `http://localhost:3000/api`
+
+| Metode | Endpoint | Keterangan |
+| :--- | :--- | :--- |
+| `POST` | `/items` | Tambah barang baru ke daftar cuci. |
+| `GET` | `/items` | Ambil semua barang. |
+| `GET` | `/items?status=STATUS` | Ambil barang berdasarkan status (misalnya, `Selesai`). |
+| `GET` | `/items/:id` | Ambil detail barang berdasarkan ID. |
+| `PUT` | `/items/:id` | Perbarui detail/status barang berdasarkan ID. |
+| `DELETE` | `/items/:id` | Hapus barang berdasarkan ID. |
+
+-----
+
+## 💬 Contoh Request & Response (Menggunakan Postman)
+
+### 1\. CREATE (Tambah Barang)
+
+| **Request** | **Response Status** |
+| :--- | :--- |
+| `POST /api/items` | `201 Created` |
+
+**Body Request:**
+
+```json
 {
-    "nama_sepatu": "Converse Chuck 70",
-    "warna": "Hitam",
-    "layanan": "Deep Clean"
+    "nama_sepatu": "Vans Old Skool",
+    "warna": "Merah Marun",
+    "layanan": "Reguler"
 }
-Response (201 Created):
+```
 
-JSON
+**Response Body (JSON):**
 
+```json
 {
-    "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "nama_sepatu": "Converse Chuck 70",
-    "warna": "Hitam",
-    "layanan": "Deep Clean",
+    "id": "e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b",
+    "nama_sepatu": "Vans Old Skool",
+    "warna": "Merah Marun",
+    "layanan": "Reguler",
     "status": "Masuk",
-    "tgl_masuk": "2025-10-15T15:10:00.000+07:00"
+    "tgl_masuk": "2025-10-15T16:00:00.000+07:00"
 }
-2. READ (Filter Status)
-Endpoint: GET /api/items?status=Selesai
+```
 
-Response (200 OK):
+### 2\. READ All (dengan Filter)
 
-JSON
+| **Request** | **Response Status** |
+| :--- | :--- |
+| `GET /api/items?status=Selesai` | `200 OK` |
 
+**Response Body (JSON):**
+
+```json
 [
     {
-        "id": "f5e4d3c2-b1a0-9876-5432-1fedcba09876",
-        "nama_sepatu": "Adidas Ultraboost",
-        "warna": "Abu-abu",
+        "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "nama_sepatu": "Converse Chuck Taylor",
+        "warna": "Hitam",
         "layanan": "Reguler",
         "status": "Selesai",
-        "tgl_masuk": "2025-10-10T10:00:00.000+07:00"
+        "tgl_masuk": "2025-10-01T10:00:00.000+07:00"
     }
-    // ... barang lainnya dengan status "Selesai"
 ]
-3. UPDATE (Ubah Status)
-Endpoint: PUT /api/items/:id (Ganti :id dengan ID sepatu)
+```
 
-Body (JSON):
+### 3\. UPDATE (Ganti Status)
 
-JSON
+| **Request** | **Response Status** |
+| :--- | :--- |
+| `PUT /api/items/e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b` | `200 OK` |
 
+**Body Request:**
+
+```json
 {
     "status": "Dicuci"
 }
-Response (200 OK): Mengembalikan objek yang telah diperbarui.
+```
 
-4. DELETE (Hapus Barang)
-Endpoint: DELETE /api/items/:id (Ganti :id dengan ID sepatu)
+**Response Body (JSON):** (Objek yang diperbarui)
 
-Response (204 No Content): Tidak ada body yang dikembalikan.
+```json
+[
+    {
+        "id": "e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b",
+        "nama_sepatu": "Vans Old Skool",
+        "warna": "Merah Marun",
+        "layanan": "Reguler",
+        "status": "Dicuci",
+        "tgl_masuk": "2025-10-15T16:00:00.000+07:00"
+    }
+]
+```
 
-⚙️ Langkah Instalasi dan Cara Menjalankan API (Lokal)
-Clone Repository:
+### 4\. DELETE (Hapus Barang)
 
-Bash
+| **Request** | **Response Status** |
+| :--- | :--- |
+| `DELETE /api/items/e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b` | `204 No Content` |
 
-git clone https://github.com/rizasaputra29/shoe-laundry-api
-cd shoe-laundry-api
-Instal Dependencies:
+**Response Body:** (Kosong)
 
-Bash
+-----
 
-npm install
-Konfigurasi Environment: Buat file .env di root proyek dan isi dengan kredensial Supabase Anda:
+## ☁️ Link Deployment (Vercel)
 
-Code snippet
+API ini telah di-*deploy* ke Vercel dan dapat diakses publik.
 
-SUPABASE_URL="https://[PROJECT_REF].supabase.co"
-SUPABASE_KEY="[YOUR_SUPABASE_SERVICE_ROLE_KEY]"
-Jalankan API:
+**Base URL Production:**
 
-Bash
-
-npm run dev
-# API akan berjalan di http://localhost:3000
-🔗 Link Deploy (Vercel)
-API ini telah di-deploy dan dapat diakses publik di:
-
-Link Deploy Vercel: [GANTI DENGAN LINK VERCEL ANDA]
+➡️ **`[GANTI DENGAN LINK VERCEL ANDA]`**
